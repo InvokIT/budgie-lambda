@@ -4,20 +4,31 @@
   "description": "lambda functions",
   "main": "index.js",
   "scripts": {
-    "build": "webpack -p",
-    "dev": "webpack --watch",
-    "test": "exit 1"
+    "dev": "webpack",
+    "dist": "webpack -p",
+    "watch": "NODE_ENV=test DYNAMODB_REGION=eu-central-1 mocha --require babel-register --recursive test/ --watch",
+    "test": "NODE_ENV=test mocha --require babel-register --recursive test/"
   },
   "author": "Sebastian Jorgensen <sj@invokit.dk>",
   "license": "MIT",
   "devDependencies": {
+    "aws-sdk": "^2.7.20",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
+    "babel-plugin-lodash": "^3.2.11",
     "babel-plugin-syntax-flow": "^6.18.0",
     "babel-plugin-transform-flow-strip-types": "^6.21.0",
     "babel-preset-es2015": "^6.18.0",
+    "babel-register": "^6.18.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^6.0.0",
+    "es6-promisify": "^5.0.0",
+    "fb": "^1.1.1",
     "glob": "^7.1.1",
     "json-loader": "^0.5.4",
+    "lodash": "^4.17.4",
+    "mocha": "^3.2.0",
+    "uuid": "^3.0.1",
     "webpack": "^1.14.0"
   }
 }
